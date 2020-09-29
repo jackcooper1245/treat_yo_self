@@ -10,15 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_27_085605) do
+ActiveRecord::Schema.define(version: 2020_09_27_090803) do
 
-  create_table "lists", force: :cascade do |t|
+  create_table "budgets", force: :cascade do |t|
     t.string "name"
-    t.datetime "week"
+    t.integer "total"
+    t.string "currency"
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_lists_on_user_id"
+  end
+
+  create_table "lists", force: :cascade do |t|
+    t.string "week"
+    t.string "name"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "treats", force: :cascade do |t|
+    t.string "name"
+    t.integer "cost"
+    t.integer "user_id"
+    t.integer "list_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
