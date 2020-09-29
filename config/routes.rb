@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :treats
   resources :budgets
   resources :lists
-  resources :users
+  resources :users, only: [:create, :show, :edit, :update, :destroy]
   get 'signup', to: 'users#new'
   get 'profile', to: 'users#show'
   get 'login', to: "sessions#new"
