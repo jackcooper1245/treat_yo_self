@@ -16,7 +16,6 @@ class BudgetController < ApplicationController
 
     def edit
         @budget = Budget.find_by(:id => current_user.budget.id)
-
     end
 
     def update

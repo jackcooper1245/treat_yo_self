@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   resources :users, only: [:create, :edit, :update, :destroy]  do
     resources :budget
+    resources :lists
+    resources :treats
   end
   get 'signup', to: 'users#new'
   get 'profile', to: 'users#show'

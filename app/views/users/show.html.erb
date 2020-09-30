@@ -8,9 +8,13 @@
 <%= link_to "Set budget", new_user_budget_path(current_user)%>
 <%end%>
 </div>
+<div>
+<%=link_to "Treats", treats_path%>
+</div>
+
+<div>
+<%=link_to "Cycles", lists_path%>
+</div>
 
 
-
-<%=link_to "Home", root_path%>
 <%=link_to "Edit profile", edit_user_path(current_user)%>
-<%= link_to "Log out", logout_path%>

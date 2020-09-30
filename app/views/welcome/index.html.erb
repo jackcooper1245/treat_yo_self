@@ -1,3 +1,2 @@
 <h1> Hi <%=current_user.first_name%> Welcome to Treat Yo Self</h1>
-<%= link_to "Profile", profile_path%>
-<%= link_to "Log out", logout_path%>
+<div><%= link_to "Treat Yo Self?", new_user_list_path(current_user)%></div>

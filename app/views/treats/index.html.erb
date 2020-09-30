@@ -1,0 +1,11 @@
+<h1>Your treats</h1>
+<div>
+<%@treats.each do |treat|%>
+<ul>
+<li><%=treat.name%>, <%=treat.cost%></li>
+</ul>
+<%end%>
+</div>
+<div>
+    <%= link_to "Add new Treat", new_treat_path%>
+</div>

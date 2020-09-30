@@ -1,0 +1,16 @@
+<h1>Set up a new Treat Yo Self Cycle</h1>
+<%=form_for @list do |f|%>
+<%= f.hidden_field :user_id %>
+<h2>What should we call cycle?</h2>
+<%=f.label :name%>
+<%=f.text_field :name%>
+<h2>How long would you like the cycle to run?</h2>
+<%=f.label :start_date%>
+<%=f.date_select :start_time%>
+<%=f.label :end_date%>
+<%=f.date_select :end_time%>
+<h2>How Many Times Would you like to Treat Yourself per week?</h2>
+<%=f.label :number_of_treats%>
+<%=f.text_field :number_of_treats%>
+<%= f.submit%>
+<%end%>
