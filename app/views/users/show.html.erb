@@ -1,3 +1,13 @@
 <h1>Welcome to <%=current_user.first_name%>'s Profile</h1>
+
+
+<p>Budget: <%= current_user.budgets.first.total do %></p>
+
+<%end%>
+
+<div>
+<%= link_to "New budget", new_user_budget_path(@user)%>
 <%=link_to "Home", root_path%>
+<%=link_to "Edit profile", edit_user_path(current_user)%>
 <%= link_to "Log out", logout_path%>
+</div>

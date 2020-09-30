@@ -15,10 +15,21 @@ class UsersController < ApplicationController
     end
 
     def show
-        @user = User.find_by(:id => params[:id])
+        @user = User.find_by(:id => current_user[:id])
     end
 
     def edit
+        @user = User.find_by(:id => params[:id])
+    end
+
+    def update
+        @user = User.find_by(:id => params[:id])
+        if @user && @user.authenticate(params[:user][:password])
+            @user.update(user_params)
+            redirect_to user_path
+        else
+            render :edit
+         end
     end
 
     def delete

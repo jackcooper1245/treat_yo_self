@@ -1,8 +1,8 @@
 class User < ApplicationRecord
     has_secure_password
     has_many :lists
-    has_one :budget
-    has_many :treats, through: :lists
+    has_many :budgets
+    has_many :treats
     validates :user_name, presence: true
     validates :user_name, uniqueness: true
     validates :first_name, presence: true

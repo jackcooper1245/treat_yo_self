@@ -24,8 +24,8 @@ RSpec.describe User, type: :model do
     expect(@user.lists.last).to eq(@list_2)
   end
 
-  it "has a budget" do
-    expect(@user.budget).to eq(@budget)
+  it "has mant budget" do
+    expect(@user.budgets.first).to eq(@budget)
   end
 
   it "has many treats through lists" do
