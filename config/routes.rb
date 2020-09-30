@@ -2,10 +2,10 @@ Rails.application.routes.draw do
   root 'welcome#index'
   resources :treats
   resources :lists
-  resources :budgets
+  resources :budget
 
   resources :users, only: [:create, :edit, :update, :destroy]  do
-    resources :budgets, only: [:new, :create, :edit, :update, :destroy]
+    resources :budget
   end
   get 'signup', to: 'users#new'
   get 'profile', to: 'users#show'
