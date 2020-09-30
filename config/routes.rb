@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     resources :lists
     resources :treats
   end
+
+  get 'random', to: 'treats#random'
   get 'signup', to: 'users#new'
   get 'profile', to: 'users#show'
   get 'login', to: "sessions#new"

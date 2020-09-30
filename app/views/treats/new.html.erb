@@ -1,0 +1,9 @@
+<h1>Add a new treat:</h1>
+<%= form_for @treat do |f|%>
+<%= f.hidden_field :user_id %>
+<%=f.label :name%>
+<%= f.text_field :name%>
+<%=f.label :cost%>
+<%= f.text_field :cost%>
+<%= f.submit%>
+<%end%>

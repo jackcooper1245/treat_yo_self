@@ -2,10 +2,10 @@
 <div>
 <%@treats.each do |treat|%>
 <ul>
-<li><%=treat.name%>, <%=treat.cost%></li>
+<li><%=link_to treat.name, treat_path(treat)%>, <%=current_user.budget.currency%><%=treat.cost%></li>
 </ul>
 <%end%>
 </div>
 <div>
-    <%= link_to "Add new Treat", new_treat_path%>
+    <%= link_to "Add new Treat", new_user_treat_path(current_user)%>
 </div>
