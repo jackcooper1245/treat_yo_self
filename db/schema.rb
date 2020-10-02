@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_01_094937) do
+ActiveRecord::Schema.define(version: 2020_10_02_151821) do
 
   create_table "budgets", force: :cascade do |t|
     t.string "name"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 2020_10_01_094937) do
     t.datetime "start_time"
     t.datetime "end_time"
     t.integer "number_of_treats"
+    t.integer "treat_id"
   end
 
   create_table "treats", force: :cascade do |t|

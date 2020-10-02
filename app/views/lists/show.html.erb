@@ -1,4 +1,4 @@
-<h1><%= @list.name%></h1>
+<div><h1><%= @list.name%></h1> <%=link_to "Other cycles", lists_path%> </div>
 
 <h2>Budget:<%=current_user.budget.currency%><%=@list.budget.total%></h2>
 
@@ -12,7 +12,9 @@
 <h2>Available Treats:</h2>
     <%available_treats.each do |treat|%>
     
-    <div><%= link_to treat.name, user_treat_path(current_user, treat)%> - <%=link_to "Add to cycle?",  user_list_treat_add_treat_path(current_user, @list, treat)%></div>
+    <div><%= link_to treat.name, user_treat_path(current_user, treat)%> - <%=link_to "Add to cycle?",  user_list_treat_add_treat_path(current_user, @list, treat)%> 
+    (Currently assigned to: <%=list_name(treat)%>)
+    </div>
     <%end%>
 
 <h2>Started: <%=@list.start_time.strftime("%A %B %d, %Y")%></h2>
@@ -20,3 +22,4 @@
 <%= calendar start_date: @list.start_time, number_of_days: 7 do |date| %>
   <%= date.day %>
 <% end %>
+

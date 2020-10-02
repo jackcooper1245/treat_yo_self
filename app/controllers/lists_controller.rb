@@ -27,7 +27,7 @@ before_action :verified_user
         @list = List.find_by(id: params[:list_id])
         @treat = Treat.find_by(id: params[:treat_id])
         @list.treats << @treat
-
+        @treat.lists << @list
         
         redirect_to list_path(@list)
     end
