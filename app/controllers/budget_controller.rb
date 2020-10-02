@@ -29,7 +29,14 @@ class BudgetController < ApplicationController
     end
     
 
+    def treat_selected
+        @budget = Budget.find_by(:id => current_user.budget.id)
+        @treat = Treat.find_by(id: params[:id])
+        adjust_budget(@treat)
+        @budget.update
     end
+
+end
 
 private
 

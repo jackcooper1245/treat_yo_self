@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   root 'welcome#index'
   resources :treats
-  resources :lists
+  resources :lists do
+    get 'list_treat', to: 'treats#add_to_list'
+  end
   resources :budget
 
   resources :users, only: [:create, :edit, :update, :destroy]  do
@@ -9,6 +11,7 @@ Rails.application.routes.draw do
     resources :lists
     resources :treats
   end
+
 
   get 'random', to: 'treats#random'
   get 'signup', to: 'users#new'

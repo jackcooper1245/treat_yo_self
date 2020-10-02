@@ -1,2 +1,7 @@
 <h1><%= @list.name%></h1>
-<h2>Running from <%=@list.start_time.strftime("%A %B %d, %Y")%> until <%=@list.end_time.strftime("%A %B %d, %Y")%></h2>
+<h2>Budget:<%=@list.budget.total%></h2>
+<h2>Available Treats:</h2>
+<%current_user.treats.each do |treat|%>
+<%= link_to treat.name, user_treat_path(current_user, treat)%>
+<%end%>
+<h2>Started: <%=@list.start_time.strftime("%A %B %d, %Y")%></h2>

@@ -1,6 +1,6 @@
 class TreatsController < ApplicationController
     def index
-        @treats = Treat.all
+        @treats = current_user.treats
     end
 
     def new    
@@ -17,9 +17,28 @@ class TreatsController < ApplicationController
         end
     end
 
+    def show
+        @treat = Treat.find_by(id: params[:id])
+    end
+
+    def add_to_list
+        @treat = Treat.find_by(id: params[:id])
+        @list = List.find_by(id: params[:id])
+        @treat.list = @list
+        raise params_inspect
+        redirect_to list_path(@list)
+    end
+
     def random
         @treat = Treat.all.sample(1)
     end
+
+        
+    def destroy 
+        @treat = Treat.find_by(id: params[:id])
+        @treat.delete
+        redirect_to treats_path
+    end 
 
 
     private

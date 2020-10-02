@@ -1,5 +1,6 @@
 <h1>Your Treat Yo Self Cycles</h1>
 <%@lists.each do |list|%>
-<%=link_to "#{list.name}", list_path(list)%>
+<%=link_to "#{list.name}", user_list_path(current_user, list)%>
 <%end%>
+<%= link_to "Add a new Cycle", new_user_list_path(current_user)%>
 
