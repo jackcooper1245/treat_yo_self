@@ -1,14 +1,17 @@
 Rails.application.routes.draw do
   root 'welcome#index'
   resources :treats
-  resources :lists do
-    get 'list_treat', to: 'treats#add_to_list'
-  end
+  resources :lists 
   resources :budget
 
   resources :users, only: [:create, :edit, :update, :destroy]  do
     resources :budget
-    resources :lists
+    resources :lists do
+      resources :treats do
+        get 'add_treat', to: 'lists#add_treat'
+        get 'remove_treat', to: 'lists#remove_treat'
+      end
+    end
     resources :treats
   end
 

@@ -22,6 +22,28 @@ before_action :verified_user
         @list = List.find_by(id: params[:id])
     end
 
+
+    def add_treat
+        @list = List.find_by(id: params[:list_id])
+        @treat = Treat.find_by(id: params[:treat_id])
+        @list.treats << @treat
+
+        
+        redirect_to list_path(@list)
+    end
+
+    def remove_treat
+    
+        @list = List.find_by(id: params[:list_id])
+        @treat = Treat.find_by(id: params[:treat_id])
+
+        @list.treats.select do |treat| 
+           @list.treats.delete(treat) if treat.name == @treat.name
+        end
+        redirect_to list_path(@list)
+
+    end
+
     def edit
         @list = List.find_by(id: params[:id])
     end

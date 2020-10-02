@@ -1,9 +1,9 @@
 <h1>Welcome to <%=current_user.first_name%>'s Profile</h1>
 
 
-<div>Budget: <%= current_user.budget.currency%><%= current_user.budget.total%>
+<div>Current Treat Budget: <%= current_user.budget.currency%><%= current_user.budget.total%>
 <%if current_user.budget%>
-<%= link_to "Set budget", edit_budget_path(current_user)%>
+<%= link_to "Update budget", edit_budget_path(current_user)%>
 <%else%>
 <%= link_to "Set budget", new_user_budget_path(current_user)%>
 <%end%>

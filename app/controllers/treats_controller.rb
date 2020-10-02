@@ -21,13 +21,6 @@ class TreatsController < ApplicationController
         @treat = Treat.find_by(id: params[:id])
     end
 
-    def add_to_list
-        @treat = Treat.find_by(id: params[:id])
-        @list = List.find_by(id: params[:id])
-        @treat.list = @list
-        raise params_inspect
-        redirect_to list_path(@list)
-    end
 
     def random
         @treat = Treat.all.sample(1)
