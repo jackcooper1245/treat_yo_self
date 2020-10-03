@@ -26,7 +26,7 @@ class UsersController < ApplicationController
         @user = User.find_by(:id => params[:id])
         if @user && @user.authenticate(params[:user][:password])
             @user.update(user_params)
-            redirect_to user_path
+            redirect_to profile_path
         else
             render :edit
          end
