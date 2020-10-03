@@ -23,19 +23,12 @@ class BudgetController < ApplicationController
         @budget.update(budget_params)
         if
         @budget.valid?
-        redirect_to profile_path
+        redirect_to root_path
     else
-        render :edit
+        flash[:alert] = "Budet total can't go below zero!, Top up your budget"
+        redirect_to root_path
     end
     
-
-    def treat_selected
-        @budget = Budget.find_by(:id => current_user.budget.id)
-        @treat = Treat.find_by(id: params[:id])
-        adjust_budget(@treat)
-        @budget.update
-    end
-
 end
 
 private

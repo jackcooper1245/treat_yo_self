@@ -5,10 +5,25 @@
 
 <%end%>
 
+<h2>Remaining Budget: <%=current_user.budget.currency%><%=current_user.budget.total%></h2>
 <div>
-  <%if !current_user.lists.any?%>
-    <%= link_to "Plan your Treats for the week", new_user_list_path(current_user)%>
-  <%else%>
-     <%= link_to "Plan your Treats for the week", edit_list_path(current_user)%>
-  <%end%>
-</div>
+
+<h2>Current Cycles</h2>
+<ul>
+<%current_user.lists.each do |list|%>
+<li><%= link_to list.name, list_path(list)%></li>
+<%end%>
+</ul>
+
+
+<h2>Upcoming Treats!</h2>
+<%= week_calendar start_data: Time.now, events: @treats do |date, treats| %>
+  <%= date.day %>
+
+  <% treats.each do |treat| %>
+    <div>
+      <%=link_to treat.name, treat_path(treat) %>
+    </div>
+  <% end %>
+<% end %>
+<%= link_to "Plan your upcoming treats", treats_path%>

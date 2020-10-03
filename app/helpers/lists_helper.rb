@@ -13,13 +13,11 @@ module ListsHelper
     end
 
     def available_treats
-        current_user.treats.where.not(list_id: current_list.id)
-    end
-            
-    def list_name(treat)
-        @list = List.find_by(id: treat.list_id)
-        @list.name
+        current_user.treats.where(list_id: nil)   
     end
 
+    def assigned_list
+        current_user.lists.find_by(id: treat.list_id).name
+    end
 
 end

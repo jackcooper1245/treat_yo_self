@@ -41,8 +41,15 @@ before_action :verified_user
            @list.treats.delete(treat) if treat.name == @treat.name
         end
         redirect_to list_path(@list)
-
     end
+
+    def select_treat
+        @treat = Treat.find_by(id: params[:treat_id])
+        @list = List.find_by(id: params[:list_id])
+        @list.budget.total = (@list.budget.total - @treat.cost)
+        redirect_to list_path(@list)
+    end
+
 
     def edit
         @list = List.find_by(id: params[:id])
@@ -53,6 +60,7 @@ before_action :verified_user
             @list.update(list_params)
             if
             @list.valid?
+            raise params.inspect
             redirect_to root_path
         else
             render :edit

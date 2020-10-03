@@ -1,4 +1,21 @@
 
-<div><h1><%=@treat.name%> - <%=@treat.cost%></h1>
-<%= link_to "Delete", treat_path(@treat), method: :delete%>
+<div><h1><%=@treat.name%> - <%=@treat.cost%></h1></div>
+
+
+<%@new_total = current_user.budget.total - @treat.cost%>
+<%=form_for @budget do |f|%>
+<%=f.hidden_field :total, value: @new_total%>
+<%= f.submit "Use Treat!"%>
+<%end%>
+
+
+
+<h2>Or Save it for later:</h2>
+<%= form_for @treat do |f|%>
+<div><%=f.date_select :start_time%>
+<%= f.submit "Add to Calendar"%></div>
+
+<%end%>
+<div>
+<%= link_to "Delete Treat", treat_path(@treat), method: :delete%>
 </div>

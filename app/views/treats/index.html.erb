@@ -2,7 +2,7 @@
 <div>
 <%@treats.each do |treat|%>
 <ul>
-<li><%=link_to treat.name, treat_path(treat)%>, <%=current_user.budget.currency%><%=treat.cost%></li>
+<li><%=link_to treat.name, treat_path(treat)%>, <%=current_user.budget.currency%><%=treat.cost%> - <%=link_to "Add to calendar", treat_path(treat)%></li>
 </ul>
 <%end%>
 </div>
