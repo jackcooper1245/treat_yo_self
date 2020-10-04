@@ -9,12 +9,9 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= yield %>
-    <div>
-    <%= link_to "Profile", profile_path%>
-    <%=link_to "Home", root_path%>
-  <%= link_to "Log out", logout_path%>  
-  </div>
+<body class="text-center" id="decs_root">
+  <%= render 'layouts/navbar'%>
+  <%= yield %>
+   <%=render "layouts/footer"%>
   </body>
 </html>

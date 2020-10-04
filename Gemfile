@@ -21,11 +21,13 @@ gem 'jbuilder', '~> 2.7'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
  gem 'bcrypt', '~> 3.1.7'
- gem 'bootstrap', '~> 5.0.0.alpha1'
-
+ gem 'bootstrap', '~> 4.1.1'
+ gem 'jquery-rails'
+  gem 'rails_bootstrap_navbar'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 gem "simple_calendar", "~> 2.0"
+gem "bootstrap_form", "~> 4.0"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false

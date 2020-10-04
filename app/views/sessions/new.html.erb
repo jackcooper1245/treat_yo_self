@@ -1,13 +1,21 @@
-<%= form_for @user, url: login_path, method: :post do |f| %>
-  <div>
+<div class="d-flex justify-content-center pb-3">
+<div class="card" style="width: 25rem;" class="justify-center w-50 p-3">
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+<h1>Login</h1>
+<%= form_for @user, url: login_path, method: :post, class: "form-control" do |f| %>
+  <div class="form-group">
     <%= f.label :user_name %>
-    <%= f.text_field :user_name %>
+    <%= f.text_field :user_name, class: "form-control" %>
   </div>
-  <div>
+  <div class="form-group">
     <%= f.label :password %>
-    <%= f.password_field :password %>
+    <%= f.password_field :password, class: "form-control" %>
   </div>
-  <div>
-    <%= f.submit "log in" %> 
+  <div class="form-group">
+    <%= f.submit "log in", class: "btn btn-primary" %> 
   </div>
+  <%=link_to "Sign up", signup_path, class: "card-link"%>
 <% end %> 
+</div>
+</div>
+</div>
