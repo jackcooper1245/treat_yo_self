@@ -14,10 +14,14 @@
   <div class="form-group">
     <%= f.label :user_name %>
     <%= f.text_field :user_name, class: "form-control" %>
+        <p class='error' style="color: red"><%= show_errors(@user, :user_name) %></p>
+
   </div>
   <div class="form-group">
     <%= f.label :password %>
     <%= f.password_field :password, class: "form-control" %>
+        <p class='error' style="color: red"><%= show_errors(@user, :password) %></p>
+
   </div>
   <div class="form-group">
     <%= f.submit "log in", class: "btn btn-primary" %> 

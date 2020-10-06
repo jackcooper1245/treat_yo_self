@@ -1,15 +1,20 @@
-<% if @treat.errors.any? %>
-  <% @treat.errors.full_messages.each do |message|%>\
-  <h5 style= "color: red;"><%= message %> </h5>
-  <%end%>
-<%end%>
+<div class="d-flex justify-content-center pb-3">
+<div class="card" style="width: 35rem;" class="justify-center w-50 p-3 border-primary">
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
 
 <h1>Add a new treat:</h1>
 <%= form_for @treat do |f|%>
 <%= f.hidden_field :user_id %>
 <%=f.label :name%>
+    <p class='error' style="color: red"><%= show_errors(@treat, :name) %></p>
+
 <%= f.text_field :name%>
 <%=f.label :cost%>
 <%= f.text_field :cost%>
+    <p class='error' style="color: red"><%= show_errors(@treat, :cost) %></p>
+
 <%= f.submit%>
 <%end%>
+</div>
+</div>
+</div>

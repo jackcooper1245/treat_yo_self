@@ -12,27 +12,37 @@
 
 <%= f.label :user_name%>
 <%= f.text_field :user_name, class: "form-control"%>
+    <p class='error' style="color: red"><%= show_errors(@user, :user_name) %></p>
+
 </div>
     <div class="form-group col-md-6">
 <%= f.label :email%>
 <%= f.text_field :email, class: "form-control"%>
+    <p class='error' style="color: red"><%= show_errors(@user, :email) %></p>
+
 </div>
 <div class="form-row">
 
     <div class="form-group col-md-6">
 <%= f.label :first_name%>
 <%= f.text_field :first_name, class: "form-control"%>
+    <p class='error' style="color: red"><%= show_errors(@user, :first_name) %></p>
+
 </div>
 
     <div class="form-group col-md-6">
 <%= f.label :last_name%>
 <%= f.text_field :last_name, class: "form-control"%>
+    <p class='error' style="color: red"><%= show_errors(@user, :last_name) %></p>
+
 </div>
 </div>
 
     <div class="form-group col-md-3">
 <%= f.label :age%>
 <%= f.text_field :age, class: "form-control"%>
+    <p class='error' style="color: red"><%= show_errors(@user, :age) %></p>
+
 </div>
 </div>
 
@@ -41,11 +51,15 @@
 <%= f.fields_for :budget do |budg| %>
     <%= budg.label :budget_total %>
     <%= budg.text_field :total, class: "form-control" %><br>
+        <p class='error' style="color: red"><%= show_errors(@budget, :total) %></p>
+
     </div>
     <div class="form-group col-md-3">
 
     <%= budg.label :budget_currency %>
     <%= budg.text_field :currency, class: "form-control" %><br>
+            <p class='error' style="color: red"><%= show_errors(@budget, :currency) %></p>
+
     </div>
 <%end%>
 
@@ -56,11 +70,15 @@
     <div class="form-group col-md-6">
 <%= f.label :password%>
 <%= f.password_field :password, class: "form-control"%>
+        <p class='error' style="color: red"><%= show_errors(@user, :password) %></p>
+
 </div>
 
     <div class="form-group col-md-6">
 <%= f.label :password_confirmation%>
 <%= f.password_field :password_confirmation, class: "form-control"%>
+        <p class='error' style="color: red"><%= show_errors(@user, :password_confirmation) %></p>
+
 </div>
 </div>
 <div class="form-group">
