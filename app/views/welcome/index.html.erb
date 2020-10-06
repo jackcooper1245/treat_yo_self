@@ -1,6 +1,6 @@
-<div class="container">
+<div class="container-fluid">
 
-  <div class="row">
+  <div class="row justify-content-center">
   <div class="col">
     <div class="jumbotron">
         <div class="container">
@@ -11,33 +11,36 @@
 
   <div class="row">
     
-     <div class="col pb-3">
+  <div class="col pb-3" style="width: 25%; padding-left: 100px;">
     <div class="card" style="width: 18rem;">
       <div class="card-body">
-      <h5 class="card-title">Current Cycles</h5>
-      <ul class="card-text text-left">
+          <h5 class="card-title">Current Cycles</h5>
+            <ul class="card-text text-left">
                   <%current_user.lists.each do |list|%>
                  <li> <%= link_to list.name, list_path(list)%></li>
             <%end%>
-            </ul>
+          </ul>
       </div>
     </div>
-    </div>
+  </div>
     
-  <div class="col-4 pb-3">
-    <div class="card" style="width: 18rem;">
-      <%= link_to "Treat Yo Self?", random_path, class: "btn btn-primary btn-lg"%>
+<div class="col-4 pb-3" style="width: 50%; padding-left: 50px;">
+  <div class="card" style="width: 18rem;">
+    <%= link_to "Treat Yo Self?", random_path, class: "btn btn-primary btn-lg"%>
   </div>
+</div>
+
+<div class="col pb-3" style="width: 25%">
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <%if current_user.budget%>
+        <h5 class="card-title">Remaining Budget: <%=current_user.budget.currency%><%=current_user.budget.total%></h5>
+      <%else%>
+      <h5 class="card-title">Remaining Budget: 0.0</h5>
+      <%end%>
+      <%=current_budget%>
+    </div>
   </div>
-
-    <div class="col pb-3">
-    <div class="card" style="width: 18rem;">
-          <div class="card-body">
-
-      <h5 class="card-title">Remaining Budget: <%=current_user.budget.currency%><%=current_user.budget.total%></h5>
-      <%= link_to "Update budget", edit_budget_path(current_user), class: "card-link"%>
-</div>
-</div>
 </div>
   
 </div>
@@ -45,19 +48,21 @@
 
 <div class="row">
 <div class="col" style="padding: 60px;">
-<div class="card" style="width: 60rem;">
+<div class="card" style="width: 100%;">
 <h2>Treat Calendar</h2>
-      <%= week_calendar start_data: Time.now, events: @treats do |date, treats| %>
+      <%= week_calendar start_data: Time.now, events: @lts do |date, lts| %>
         <%= date.day %>
 
-        <% treats.each do |treat| %>
+        <% lts.each do |lt| %>
           <div>
-            <%=link_to treat.name, treat_path(treat) %>
+            <%=link_to lt.treat.name, treat_path(lt.treat) %>
           </div>
         <% end %>
       <% end %>
       </div>
   </div>  
 </div>
+</div>
+
 </div>
  

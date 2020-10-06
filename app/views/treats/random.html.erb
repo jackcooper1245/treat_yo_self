@@ -1,3 +1,5 @@
 <div><h1><%=@treat.first.name%> - <%=current_user.budget.currency%><%=@treat.first.cost%></h1></div>
 <%=link_to "Select Treat", select_treat_path(@t)%>
+
+<%= link_to "Treat Yo Self?", random_path, class: "btn btn-primary btn-lg"%>
 <div><h2>Total budget remaining: <%=budget_with_currency%></h2></div>

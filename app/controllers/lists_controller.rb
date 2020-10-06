@@ -19,6 +19,7 @@ before_action :verified_user
     end
 
     def show
+        @lt = Lt.new
         @list = List.find_by(id: params[:id])
     end
 
@@ -28,7 +29,8 @@ before_action :verified_user
         @treat = Treat.find_by(id: params[:treat_id])
         @list.treats << @treat
         @treat.lists << @list
-        
+        @treat.save
+        @list.save
         redirect_to list_path(@list)
     end
 

@@ -1,19 +1,38 @@
+<% if @list.errors.any? %>
+  <% @list.errors.full_messages.each do |message|%>\
+  <h5 style= "color: red;"><%= message %> </h5>
+  <%end%>
+<%end%>
+
 <%=form_for @list do |f|%>
 <%= f.hidden_field :user_id %>
-<h2>What should we call cycle?</h2>
+  <div class="form-group">
+
+<h5>What should we call cycle?</h5>
 <%=f.label :name%>
-<%=f.text_field :name%>
-<h2>When would you like the cycle to Start?</h2>
+<%=f.text_field :name, class: "form-control"%>
+</div>
+  <div class="form-group">
+
+<h5>When would you like the cycle to Start?</h5>
 <%=f.label :start_date%>
-<%=f.date_select :start_time%>
-<h2>How Many Times Would you like to Treat Yourself per week?</h2>
+<%=f.date_select :start_time, class: "form-control"%>
+</div>
+  <div class="form-group">
+
+<h5>How Many Times Would you like to Treat Yourself per week?</h5>
 <%=f.label :number_of_treats%>
-<%=f.text_field :number_of_treats%>
-<h2>What is this cycles budget?</h2>
+<%=f.text_field :number_of_treats, class: "form-control"%>
+</div>
+  <div class="form-group">
+
+<h5>What is this cycles budget?</h5>
 
 <%= f.fields_for :budget do |budget| %>
     <%= budget.label :budget %>
-    <%= budget.text_field :total %>
+    <%= budget.text_field :total, class: "form-control" %>
 <%end%>
-<%= f.submit%>
+</div>
+
+<%= f.submit class: "form-control"%>
 <%end%>

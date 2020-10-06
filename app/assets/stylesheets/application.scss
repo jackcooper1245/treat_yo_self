@@ -12,3 +12,7 @@
 .pb-3 {
     padding-top: 100px;
 }
+
+.field-with-errors input {
+    border: 1px solid red;
+  }

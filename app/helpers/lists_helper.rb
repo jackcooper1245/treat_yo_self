@@ -12,9 +12,7 @@ module ListsHelper
         @list.treats << @treat
     end
 
-    def available_treats
-        current_user.treats.where(list_id: nil)   
-    end
+    
 
     def assigned_list
         current_user.lists.find_by(id: treat.list_id).name

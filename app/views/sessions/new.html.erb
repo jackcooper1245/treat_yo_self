@@ -1,6 +1,14 @@
 <div class="d-flex justify-content-center pb-3">
 <div class="card" style="width: 25rem;" class="justify-center w-50 p-3">
 <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+
+
+<% if @user.errors.any? %>
+  <% @user.errors.full_messages.each do |message|%>\
+  <h5 style= "color: red;"><%= message %> </h5>
+  <%end%>
+<%end%>
+
 <h1>Login</h1>
 <%= form_for @user, url: login_path, method: :post, class: "form-control" do |f| %>
   <div class="form-group">

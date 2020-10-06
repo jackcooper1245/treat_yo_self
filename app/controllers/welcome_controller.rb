@@ -2,7 +2,7 @@ class WelcomeController < ApplicationController
   before_action :verified_user
   
   def index
-    @treats = current_user.treats.where.not(start_time: nil)
+    @lts = current_user.lts.all
   end
-
+  
 end

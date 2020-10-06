@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   root 'welcome#index'
   resources :treats
-  resources :lists 
+  resources :lists do  
+    resources :lts
+  end
   resources :budget
-
+  resources :lts
   resources :users, only: [:create, :edit, :update, :destroy]  do
     resources :budget
     resources :lists do

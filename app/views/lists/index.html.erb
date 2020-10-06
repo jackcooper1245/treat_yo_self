@@ -1,3 +1,6 @@
+<div class="d-flex justify-content-center" style="padding: 25px;">
+<div class="card" style="width: 35rem; padding-bottom: 50px;" class="justify-center w-50 p-3 border-primary">
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
 <h1>Your Treat Yo Self Cycles</h1>
 <div>
 <%@lists.each do |list|%>
@@ -8,5 +11,8 @@
 </div>
 <div>
 <%= link_to "Add a new Cycle", new_user_list_path(current_user)%>
+</div>
+</div>
+</div>
 </div>
 

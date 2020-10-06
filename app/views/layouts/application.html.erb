@@ -9,9 +9,13 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-<body class="text-center" id="decs_root">
+<body>
   <%= render 'layouts/navbar'%>
+
+<main class="container-fluid text-center justify-content-center">
   <%= yield %>
+  </main>
    <%=render "layouts/footer"%>
+
   </body>
 </html>

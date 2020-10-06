@@ -1,20 +1,25 @@
+<div class="d-flex justify-content-center pb-3">
+<div class="card" style="width: 35rem;" class="justify-center w-50 p-3 border-primary">
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+<div class="form-group">
 <h1>Welcome to <%=current_user.first_name%>'s Profile</h1>
 
-
-<div>Current Treat Budget: <%= current_user.budget.currency%><%= current_user.budget.total%>
 <%if current_user.budget%>
-<%= link_to "Update budget", edit_budget_path(current_user)%>
+<div>Current Treat Budget: <%= current_user.budget.currency%><%= current_user.budget.total%>
 <%else%>
-<%= link_to "Set budget", new_user_budget_path(current_user)%>
+<div>Current Treat Budget: 0.0</div>
 <%end%>
-</div>
+<%=current_budget%>
 <div>
-<%=link_to "Treats", treats_path%>
+<%=link_to "Treats", treats_path%>: <%=current_user.treats.count%>
 </div>
 
 <div>
-<%=link_to "Cycles", lists_path%>
+<%=link_to "Cycles", lists_path%>: <%=current_user.lists.count%>
 </div>
 
 
 <%=link_to "Edit profile", edit_user_path(current_user)%>
+</div>
+</div>
+</div>

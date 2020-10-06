@@ -30,7 +30,7 @@ class TreatsController < ApplicationController
     def show
         @list = List.find_by(id: params[:id])
         @treat = Treat.find_by(id: params[:id])
-        @budget = Budget.find_by(id: current_user.id)
+        @budget = Budget.find_by(id: current_user.budget.id)
     end
 
 

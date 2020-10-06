@@ -1,11 +1,16 @@
-<h1>Your treats</h1>
-<div>
-<%@treats.each do |treat|%>
-<ul>
-<li><%=link_to treat.name, treat_path(treat)%>, <%=current_user.budget.currency%><%=treat.cost%> - <%=link_to "Add to calendar", treat_path(treat)%></li>
-</ul>
-<%end%>
+<div class="d-flex justify-content-center pb-3">
+<div class="card" style="width: 35rem;" class="justify-center w-50 p-3 border-primary">
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+<div class="form-group">
+<h1 class="card-title">Your treats</h1>
+<div class="card-body">
+        <%@treats.each do |treat|%>
+        <%=link_to treat.name, treat_path(treat)%>, <%=treat.cost%> - <%=link_to "Add to calendar", treat_path(treat)%></br>
+        <%end%>
+        </br>
+        <%= link_to "Add new Treat", new_user_treat_path(current_user), class: "card-link"%>
 </div>
-<div>
-    <%= link_to "Add new Treat", new_user_treat_path(current_user)%>
+</div>
+</div>
+</div>
 </div>

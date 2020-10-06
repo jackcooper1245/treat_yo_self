@@ -1,5 +1,5 @@
 class BudgetController < ApplicationController
-    before_action :verified_user
+    skip_before_action :verified_user, only: [:new, :create]
 
     def new
         @budget = Budget.new(user_id: params[:user_id])

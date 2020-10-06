@@ -1,7 +1,10 @@
 class UsersController < ApplicationController
+    
     skip_before_action :verified_user, only: [:new, :create]
     def new
         @user ||= User.new
+        @budget = Budget.new
+        @user.budget = @budget
     end
 
     def create
@@ -10,7 +13,7 @@ class UsersController < ApplicationController
             redirect_to root_path
             session[:user_id] = @user.id 
         else 
-             render :new
+             render '/users/new'
         end
     end
 
@@ -39,6 +42,6 @@ class UsersController < ApplicationController
     private
     
     def user_params
-        params.require(:user).permit(:user_name, :first_name, :last_name, :email, :password, :password_confirmation, :age)
+        params.require(:user).permit(:user_name, :first_name, :last_name, :email, :password, :password_confirmation, :age, {budget_attributes: [:total, :currency]})
     end
 end
