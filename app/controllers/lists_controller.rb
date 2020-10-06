@@ -25,12 +25,7 @@ before_action :verified_user
 
 
     def add_treat
-        @list = List.find_by(id: params[:list_id])
-        @treat = Treat.find_by(id: params[:treat_id])
-        @list.treats << @treat
-        @treat.lists << @list
-        @treat.save
-        @list.save
+        add_treat
         redirect_to list_path(@list)
     end
 
@@ -46,9 +41,7 @@ before_action :verified_user
     end
 
     def select_treat
-        @treat = Treat.find_by(id: params[:treat_id])
-        @list = List.find_by(id: params[:list_id])
-        @list.budget.total = (@list.budget.total - @treat.cost)
+        select_treat
         redirect_to list_path(@list)
     end
 
