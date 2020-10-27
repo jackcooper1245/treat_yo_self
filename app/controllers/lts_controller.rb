@@ -1,6 +1,7 @@
 class LtsController < ApplicationController
 
     def create
+       
         @lt = Lt.create(lt_params)
         if @lt.save
             redirect_to list_path(@lt.list)

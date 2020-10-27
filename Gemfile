@@ -28,7 +28,9 @@ gem 'jbuilder', '~> 2.7'
 # gem 'image_processing', '~> 1.2'
 gem "simple_calendar", "~> 2.0"
 gem "bootstrap_form", "~> 4.0"
-
+gem 'omniauth-facebook', '~> 8.0'
+gem 'omniauth', '~> 1.3', '>= 1.3.1'
+gem 'dotenv-rails', '~> 2.7', '>= 2.7.6'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 

@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     end 
     
     def create 
-        @user = User.find_by(:user_name => params[:user][:user_name])
+        @user = User.find_by(:email => params[:user][:email])
 
         if @user && @user.authenticate(params[:user][:password])
             session[:user_id] = @user.id
@@ -24,4 +24,15 @@ class SessionsController < ApplicationController
         redirect_to root_path
     end 
 
+        def create_with_facebook
+            raise params.inspect
+       
+        end
+       
+        private
+       
+        def auth
+          request.env['omniauth.auth']
+        end
+    
 end

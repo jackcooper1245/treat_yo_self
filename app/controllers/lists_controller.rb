@@ -25,6 +25,7 @@ before_action :verified_user
 
 
     def add_treat
+        
         add_treat
         redirect_to list_path(@list)
     end

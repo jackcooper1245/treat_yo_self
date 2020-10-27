@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'welcome#index'
+  get '/auth/facebook' => 'sessions#create_with_facebook'
   resources :treats
   resources :lists do  
     resources :lts
@@ -17,7 +18,7 @@ Rails.application.routes.draw do
     end
     resources :treats
   end
-
+    
   get 'edit_total', to: 'budget#edit_total'
   get 'random', to: 'treats#random'
   get 'signup', to: 'users#new'

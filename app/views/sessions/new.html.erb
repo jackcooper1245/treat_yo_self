@@ -12,9 +12,9 @@
 <h1>Login</h1>
 <%= form_for @user, url: login_path, method: :post, class: "form-control" do |f| %>
   <div class="form-group">
-    <%= f.label :user_name %>
-    <%= f.text_field :user_name, class: "form-control" %>
-        <p class='error' style="color: red"><%= show_errors(@user, :user_name) %></p>
+    <%= f.label :email %>
+    <%= f.text_field :email, class: "form-control" %>
+        <p class='error' style="color: red"><%= show_errors(@user, :email) %></p>
 
   </div>
   <div class="form-group">
@@ -26,6 +26,8 @@
   <div class="form-group">
     <%= f.submit "log in", class: "btn btn-primary" %> 
   </div>
+  <%= link_to('Log in with Facebook!', '/auth/facebook') %>
+  <br>
   <%=link_to "Sign up", signup_path, class: "card-link"%>
 <% end %> 
 </div>

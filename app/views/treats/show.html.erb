@@ -13,16 +13,6 @@
 </div>
 
 
-
-<h2>Or Save it for later:</h2>
-<%= form_for @treat do |f|%>
-<div class="form-group">
-<%=f.date_select :start_time, class: "form-control"%>
-<%= f.submit "Add to Calendar", class: "btn"%></div>
-</div>
-
-<%end%>
-
 <h2>Or Try Again!</h2>
 <%= link_to "Treat Yo Self?", random_path, class: "btn btn-primary btn-lg"%>
 <div>
