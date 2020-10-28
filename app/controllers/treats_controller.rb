@@ -1,6 +1,10 @@
 class TreatsController < ApplicationController
     def index
-        @treats = current_user.treats
+        if params[:user_id]
+            @treats = current_user.treats
+        else
+        @treats = Treat.all
+        end
     end
 
     def new    

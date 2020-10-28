@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'welcome#index'
-  get '/auth/facebook' => 'sessions#create_with_facebook'
+  get '/auth/facebook/callback', to: 'sessions#create'
   resources :treats
   resources :lists do  
     resources :lts

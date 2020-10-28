@@ -11,7 +11,7 @@
 <%end%>
 <%=current_budget%>
 <div>
-<%=link_to "Treats", treats_path%>: <%=current_user.treats.count%>
+<%=link_to "Treats", user_treats_path(current_user)%>: <%=current_user.treats.count%>
 </div>
 
 <div>

@@ -4,8 +4,7 @@ class User < ApplicationRecord
     has_one :budget
     has_many :treats
     has_many :lts, through: :lists
-    validates :first_name, presence: true
-    validates :last_name, presence: true
+    validates :name, presence: true
     validates :email, presence: true
     validates :email, uniqueness: true
     validates :password, length: { in: 6..20 }
